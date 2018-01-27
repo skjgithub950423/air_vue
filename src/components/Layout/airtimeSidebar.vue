@@ -6,7 +6,7 @@
         </el-input>
         <el-tree
         class="filter-tree"
-        :data="data2"
+        :data="leftTreeData"
         :props="defaultProps"
         default-expand-all
         :filter-node-method="filterNode"
@@ -17,6 +17,12 @@
 
 <script>
 export default {
+  props: {
+    leftTreeData:{
+      type:Object,
+      required:true
+    }
+  },
   watch: {
     filterText(val) {
       this.$refs.tree2.filter(val)
