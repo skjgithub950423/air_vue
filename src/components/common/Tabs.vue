@@ -2,7 +2,7 @@
   <div class="template-tabs">
           <el-tabs
             v-model="activeIndex"
-            type="border-card"
+            type="card"
             closable
             @tab-click="tabClick"
             v-if="options.length"
@@ -61,6 +61,7 @@ export default {
   },
   watch: {
     '$route'(to) {
+      debugger
       let flag = false;
       for (let option of this.options ) {
         if (option.name === to.name) {

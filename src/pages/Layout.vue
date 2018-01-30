@@ -2,7 +2,7 @@
     <el-container>
         <el-header><Header @toggleLeftTree="toggleLeftTree"></Header></el-header>
         <el-container>
-            <el-aside width="200px"><Sidebar :leftTreeData="leftTreeData"></Sidebar></el-aside>
+            <el-aside style="width:auto"><Sidebar :leftTreeData="leftTreeData"></Sidebar></el-aside>
             <el-main><Content></Content></el-main>
         </el-container>
     </el-container>
@@ -32,3 +32,23 @@ export default {
   }
 }
 </script>
+
+<style>
+.sidebar ul.el-menu{
+    position: relative;
+}
+.el-menu--collapse .el-submenu .el-menu {
+    position: absolute;
+    margin-left: 5px;
+    top: 0;
+    left: 100%;
+    z-index: 10;
+    border: 1px solid #e4e7ed;
+    border-radius: 2px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+}
+.el-aside{
+    overflow: visible;
+}
+</style>
+
