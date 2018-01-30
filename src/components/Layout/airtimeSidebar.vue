@@ -53,6 +53,7 @@ export default {
      }
    },
    mounted () {
+       debugger
       // 刷新时以当前路由做为tab加入tabs
       if (this.$route.path !== '/' && this.$route.path.indexOf('userInfo') == -1) {
         this.$store.commit('add_tabs', {route: '/', name: 'Home'});
@@ -89,5 +90,6 @@ export default {
     }
     .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 250px;
+    min-height: 800px;
     }
 </style>
