@@ -1,24 +1,15 @@
 <template>
-  <el-tabs type="card" closable @tab-remove="removeTab">
-  <el-tab-pane
-    v-for="(item, index) in tabArr"
-    :key="item"
-    :label="item"
-  >
-  </el-tab-pane>
-  
-</el-tabs>
+<div id="mainContent">
+  <Tab></Tab>
+  <router-view></router-view>
+</div>
 </template>
 
 <script>
+import Tab from '../common/Tabs'
 export default {
-  props:{
-      tabArr:{
-          required:true
-      }
-  },
-  methods:{
-      removeTab(){}
+  components:{
+    Tab
   }
 }
 </script>
