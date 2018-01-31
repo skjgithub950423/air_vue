@@ -60,7 +60,8 @@ export default {
     }
   },
   watch: {
-    '$route'(to) {
+    '$route'(to,from) {
+      debugger
       let flag = false;
       for (let option of this.options ) {
         if (option.name === to.name) {

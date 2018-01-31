@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar">
-        <el-menu class="el-menu-vertical-demo" router :collapse="isCollapse">
+        <el-menu class="el-menu-vertical-demo" router>
             <template>
                 <el-menu-item>
                     <i class="el-icon-edit" @click.native="toggleMenu"/>
@@ -49,12 +49,13 @@ export default {
    },
    computed:{
      leftTreeItems(){
+        debugger 
        return this.$store.state.leftTree;
      }
    },
    mounted () {
       // 刷新时以当前路由做为tab加入tabs
-      if (this.$route.path !== '/' && this.$route.path.indexOf('userInfo') == -1) {
+      if (this.$route.path !== '/') {
         this.$store.commit('add_tabs', {route: '/', name: 'Home'});
         this.$store.commit('add_tabs', {route: this.$route.path , name: this.$route.name });
         this.$store.commit('set_active_index', this.$route.path);

@@ -1,9 +1,12 @@
 <template>
     <el-container>
-        <el-header><Header @toggleLeftTree="toggleLeftTree"></Header></el-header>
         <el-container>
             <el-aside style="width:auto"><Sidebar :leftTreeData="leftTreeData"></Sidebar></el-aside>
-            <el-main><Tab></Tab><Content></Content></el-main>
+            <el-main>
+                <el-header><Header @toggleLeftTree="toggleLeftTree"></Header></el-header>
+                <Tab></Tab>
+                <Content></Content>
+            </el-main>
         </el-container>
     </el-container>
 </template>
