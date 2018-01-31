@@ -3,7 +3,7 @@
         <el-header><Header @toggleLeftTree="toggleLeftTree"></Header></el-header>
         <el-container>
             <el-aside style="width:auto"><Sidebar :leftTreeData="leftTreeData"></Sidebar></el-aside>
-            <el-main><Content></Content></el-main>
+            <el-main><Tab></Tab><Content></Content></el-main>
         </el-container>
     </el-container>
 </template>
@@ -12,6 +12,7 @@
 import Header from '../components/Layout/airtimeHeader'
 import Sidebar from '../components/Layout/airtimeSidebar'
 import Content from '../components/Layout/airtimeContent'
+import Tab from '../components/common/Tabs'
 
 
 export default {
@@ -23,7 +24,8 @@ export default {
   components: {
     Header,
     Sidebar,
-    Content
+    Content,
+    Tab
   },
   methods:{
       toggleLeftTree(key){
