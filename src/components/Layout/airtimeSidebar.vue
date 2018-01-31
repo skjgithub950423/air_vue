@@ -49,7 +49,6 @@ export default {
    },
    computed:{
      leftTreeItems(){
-        debugger 
        return this.$store.state.leftTree;
      }
    },

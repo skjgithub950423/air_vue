@@ -61,11 +61,16 @@ export default {
   },
   watch: {
     '$route'(to,from) {
-      debugger
+      if(to.name == from.name){
+        return;
+      }
       let flag = false;
       for (let option of this.options ) {
         if (option.name === to.name) {
           flag = true;
+          /* if(option.index !== to.path){
+            break
+          } */
           this.$store.commit('set_active_index',to.path);
           break
         }
