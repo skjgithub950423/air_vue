@@ -54,14 +54,14 @@ export default {
    },
    mounted () {
       // 刷新时以当前路由做为tab加入tabs
-      if (this.$route.path !== '/home') {
-        this.$store.commit('add_tabs', {route: '/home', name: 'Home'});
+      if (this.$route.path !== '/home/hello') {
+        this.$store.commit('add_tabs', {route: '/home/hello', name: 'Home'});
         this.$store.commit('add_tabs', {route: this.$route.path , name: this.$route.name });
         this.$store.commit('set_active_index', this.$route.path);
       } else {
-        this.$store.commit('add_tabs', {route: '/home', name: 'Home'});
-        this.$store.commit('set_active_index', '/home');
-        this.$router.push('/home');
+        this.$store.commit('add_tabs', {route: '/home/hello', name: 'Home'});
+        this.$store.commit('set_active_index', '/home/hello');
+        this.$router.push('/home/hello');
       }
 
     },

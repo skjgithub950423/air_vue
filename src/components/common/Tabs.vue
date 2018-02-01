@@ -31,7 +31,7 @@ export default {
     },
     tabRemove (targetName) {
       // 首页不可删除
-      if(targetName == '/') {
+      if(targetName == '/home/hello') {
         return;
       }
       this.$store.commit('delete_tabs', targetName);
@@ -41,7 +41,7 @@ export default {
           this.$store.commit('set_active_index', this.options[this.options.length-1].route);
           this.$router.push({path: this.activeIndex});
         } else {
-          this.$router.push({path: '/'});
+          this.$router.push({path: '/home/hello'});
         }
       }
     }
