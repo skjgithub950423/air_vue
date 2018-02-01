@@ -1,5 +1,5 @@
 <template>
-    <el-container>
+    <el-container class="container">
         <el-container>
             <el-aside style="width:auto"><Sidebar :leftTreeData="leftTreeData"></Sidebar></el-aside>
             <el-main>
@@ -39,6 +39,9 @@ export default {
 </script>
 
 <style>
+.container{
+    z-index:100;
+}
 .sidebar ul.el-menu{
     position: relative;
 }

@@ -51,7 +51,7 @@
     methods: {
       handleClick(row) {
         this.$store.commit('get_user_info',row);
-        this.$router.push('/table/tableedit')
+        this.$router.push('/home/table/tableedit')
       }
     },
 
