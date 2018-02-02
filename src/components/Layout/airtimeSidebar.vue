@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar">
-        <el-menu class="el-menu-vertical-demo" router>
+        <el-menu class="el-menu-vertical-demo" router collapse>
             <template>
                 <el-menu-item>
                     <i class="el-icon-edit" @click.native="toggleMenu"/>
