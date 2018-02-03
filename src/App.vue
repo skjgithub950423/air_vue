@@ -8,13 +8,14 @@
 import Home from './pages/Home'
 export default {
   name: 'App',
-  components:{
+  components:{  
     Home
   }
 } 
 </script>
 
 <style>
+@import '../static/main.css';
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

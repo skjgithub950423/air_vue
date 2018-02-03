@@ -1,13 +1,11 @@
 <template>
     <el-container class="container">
-        <el-container>
-            <el-aside style="width:auto"><Sidebar :leftTreeData="leftTreeData"></Sidebar></el-aside>
-            <el-main>
-                <el-header><Header @toggleLeftTree="toggleLeftTree"></Header></el-header>
-                <Tab></Tab>
-                <Content></Content>
-            </el-main>
-        </el-container>
+        <el-aside class="sideBar" style="width:auto"><Sidebar :leftTreeData="leftTreeData"></Sidebar></el-aside>
+        <el-main class="mainContent">
+            <el-header class="contentHeader"><Header @toggleLeftTree="toggleLeftTree"></Header></el-header>
+            <Tab class="mainTab"></Tab>
+            <Content class="contentWrap"></Content>
+        </el-main>
     </el-container>
 </template>
 
