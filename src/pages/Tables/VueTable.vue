@@ -10,12 +10,11 @@
 </template>
 
 <script>
-import axios from 'axios'
 import '../../../static/datasource.css'
 export default {
     data(){
         return {
-            alluserdata:'',
+            alluserdata:[],
             columns:[
                 {
                     name:'ID',
@@ -31,7 +30,7 @@ export default {
                 }
             ],
             limits:[10,15,20],
-            userdata:''
+            userdata:[]
         }
     },
     computed:{
@@ -57,7 +56,7 @@ export default {
     },
     beforeMount(){
         var self = this;
-        axios.get('api/address')
+        this.$axios.get('api/address')
         .then(function(res){
             self.alluserdata = res.data;
             self.userdata = res.data.slice(0,10);

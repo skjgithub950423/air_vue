@@ -2,15 +2,15 @@
 <div class="login-wrap">
     <div class="gauss"></div>
     <div id="particles"></div>
-    <el-form label-width="100px">
-        <el-form-item label="账号">
-            <el-input class="formInput"></el-input>
+    <el-form label-width="100px" :rules="rules" :model="loginForm" status-icon class="loginForm" ref="loginForm">
+        <el-form-item label="账号" prop="acount">
+            <el-input class="formInput" v-model="loginForm.acount"></el-input>
         </el-form-item>
-        <el-form-item label="密码">
-            <el-input class="formInput"></el-input>
+        <el-form-item label="密码" prop="pass">
+            <el-input class="formInput" v-model="loginForm.pass"></el-input>
         </el-form-item>
         <el-row type="flex" justify="space-around">
-            <el-button type="primary">登录</el-button>
+            <el-button type="primary" @click="submitForm('loginForm')">登录</el-button>
             <el-button type="info">取消</el-button>
         </el-row>
     </el-form>
@@ -19,12 +19,58 @@
 </template>
 <script>
 export default {
+  data() {
+      var validateAcount = (rule,value,callback) => {
+          if(value == ''){
+              callback(new Error('账号不能为空'))
+          }
+          callback();
+      };
+      var validatePass = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入密码'));
+        }
+        callback();
+      };
+      return {
+        loginForm: {
+          acount: '',
+          pass: '',
+        },
+        rules: {
+          acount: [
+            { validator: validateAcount, trigger: 'blur' }
+          ],
+          pass: [
+            { validator: validatePass, trigger: 'blur' }
+          ]
+        }
+      };
+    },
+    methods: {
+      submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            this.$router.push('/home/hello')
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
+      },
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      }
+    },
   mounted(){
     particlesJS.load('particles','../../static/particles.json');
   }
 }
 </script>
-<style scoped>
+<style>
+.loginForm .el-form-item__error{
+    left:45px;
+}
 #particles{
       position: absolute;
       width: 100%;
@@ -60,6 +106,7 @@ export default {
 .login-wrap .formInput{
     width: 214px;
 }
+
 
 </style>
 

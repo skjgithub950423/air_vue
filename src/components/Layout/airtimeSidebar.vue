@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar">
-        <el-menu class="el-menu-vertical-demo" router collapse>
+        <el-menu class="el-menu-vertical-demo" :default-active="defaultActiveIndex" router>
             <template>
                 <el-menu-item>
                     <i class="el-icon-edit" @click.native="toggleMenu"/>
@@ -44,22 +44,29 @@
 export default {
    data(){
        return{
-           isCollapse:false
+           isCollapse:false,
        }
    },
    computed:{
      leftTreeItems(){
        return this.$store.state.leftTree;
+     },
+     defaultActiveIndex(){
+         return this.$store.state.activeIndex;
      }
    },
    mounted () {
       // 刷新时以当前路由做为tab加入tabs
       if (this.$route.path !== '/home/hello') {
-        this.$store.commit('add_tabs', {route: '/home/hello', name: 'Home'});
+        if(!this.$store.state.options.filter(option => option.name == 'Home').length){
+            this.$store.commit('add_tabs', {route: '/home/hello', name: 'Home'});
+        }
         this.$store.commit('add_tabs', {route: this.$route.path , name: this.$route.name });
         this.$store.commit('set_active_index', this.$route.path);
       } else {
-        this.$store.commit('add_tabs', {route: '/home/hello', name: 'Home'});
+        if(!this.$store.state.options.filter(option => option.name == 'Home').length){
+            this.$store.commit('add_tabs', {route: '/home/hello', name: 'Home'});
+        }
         this.$store.commit('set_active_index', '/home/hello');
         this.$router.push('/home/hello');
       }

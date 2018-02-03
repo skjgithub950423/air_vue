@@ -1,4 +1,6 @@
 <template>
+<el-row>
+  <el-button type="primary" @click="addUser">添加</el-button>
   <el-table
     :data="tableData"
     border
@@ -44,6 +46,7 @@
       </template>
     </el-table-column>
   </el-table>
+</el-row>
 </template>
 
 <script>
@@ -51,42 +54,26 @@
     methods: {
       handleClick(row) {
         this.$store.commit('get_user_info',row);
-        this.$router.push('/home/table/tableedit')
+        this.$router.push('/home/table/tableget')
+      },
+      addUser(){
+        this.$router.push('tableedit');
       }
     },
 
     data() {
       return {
-        tableData: [{
-          date: '2016-05-03',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-02',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-04',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }, {
-          date: '2016-05-01',
-          name: '王小虎',
-          province: '上海',
-          city: '普陀区',
-          address: '上海市普陀区金沙江路 1518 弄',
-          zip: 200333
-        }]
+        tableData: []
       }
+    },
+    computed:{
+    },
+    beforeMount(){
+      var self = this;
+      this.$axios.get('api/tableData')
+      .then(function(res){
+          self.tableData = res.data;
+      })
     }
   }
 </script>
