@@ -40,7 +40,14 @@ export default {
     },
   methods:{
       submit(formName){
-          this.$axios.post('api/tableData',this.formData);
+          debugger
+          var self = this;
+          this.$axios({
+              url:'api/tableData',
+              method:'post',
+              data:self.$qs.stringify(self.formData), 
+              headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+          });
           this.$refs[formName].resetFields();
       },
       clearAll(formName){
