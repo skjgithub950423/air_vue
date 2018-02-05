@@ -1,6 +1,6 @@
 <template>
     <el-container class="container">
-        <el-aside class="sideBar" style="width:auto"><Sidebar :leftTreeData="leftTreeData"></Sidebar></el-aside>
+        <el-aside class="sideBar" style="width:auto"><Sidebar></Sidebar></el-aside>
         <el-main class="mainContent">
             <el-header class="contentHeader"><Header @toggleLeftTree="toggleLeftTree"></Header></el-header>
             <Tab class="mainTab"></Tab>
@@ -17,11 +17,6 @@ import Tab from '../components/common/Tabs'
 
 
 export default {
-  data(){
-      return{
-          leftTreeData:'',
-      }
-  },
   components: {
     Header,
     Sidebar,

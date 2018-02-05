@@ -40,7 +40,6 @@ export default {
     },
   methods:{
       submit(formName){
-          debugger
           var self = this;
           this.$axios({
               url:'api/tableData',

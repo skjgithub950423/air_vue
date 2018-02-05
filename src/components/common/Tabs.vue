@@ -22,7 +22,6 @@ export default {
      methods: {
     // tab切换时，动态的切换路由
     tabClick (tab) {
-      debugger
       let path = this.activeIndex;
       this.$router.push({path: path});
     },

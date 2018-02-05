@@ -3,7 +3,7 @@
         <div class="sideHeader">
             <h1>这里是Logo</h1>
         </div>       
-        <el-menu class="el-menu-vertical-demo" :default-active="defaultActiveIndex" router>
+        <el-menu class="el-menu-vertical-demo" :default-active="$route.path" router>
             <template v-for="item in leftTreeItems">
                 <template v-if="item.subs">
                     <template v-if="item.subs.subends">
@@ -42,14 +42,12 @@ export default {
    data(){
        return{
            isCollapse:false,
+           defaultActiveIndex:''
        }
    },
    computed:{
      leftTreeItems(){
        return this.$store.state.leftTree;
-     },
-     defaultActiveIndex(){
-         return this.$store.state.activeIndex;
      }
    },
    mounted () {
@@ -72,6 +70,15 @@ export default {
     methods:{
         toggleMenu(){
             this.isCollapse = !this.isCollapse;
+        }
+    },
+    watch:{
+        '$route'(to){
+            debugger
+            var _self = this;
+            setTimeout(function(){
+                _self.defaultActiveIndex = to.fullPath;
+            },200)
         }
     }
 }
