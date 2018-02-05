@@ -3,9 +3,19 @@
     padding: 0;
     border: none;
 }
+html,body{
+    height: 100%;
+}
+.el-container.container{
+    height: 100%;
+}
 .mainContent{
-    padding:0; 
+    padding:0 0 0 20px; 
 }
 .header .el-menu-demo{
     border: 0;
+}
+.sideHeader{
+    background: black;
+    color: white;
 }

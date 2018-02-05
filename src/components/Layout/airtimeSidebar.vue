@@ -1,12 +1,9 @@
 <template>
   <div class="sidebar">
+        <div class="sideHeader">
+            <h1>这里是Logo</h1>
+        </div>       
         <el-menu class="el-menu-vertical-demo" :default-active="defaultActiveIndex" router>
-            <template>
-                <el-menu-item>
-                    <i class="el-icon-edit" @click.native="toggleMenu"/>
-                    <span slot="title">我的...</span>
-                </el-menu-item>
-            </template>
             <template v-for="item in leftTreeItems">
                 <template v-if="item.subs">
                     <template v-if="item.subs.subends">
@@ -86,6 +83,7 @@ export default {
         left: 0;
         top: 70px;
         bottom:0;
+        height: 100%;
     }
     .sidebar > ul {
         height:100%;
@@ -96,5 +94,11 @@ export default {
     .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 250px;
     min-height: 800px;
+    }
+    .sideHeader{
+        height: 60px;
+    }
+    .sidebar h1{
+        line-height: 60px;
     }
 </style>

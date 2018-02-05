@@ -42,6 +42,7 @@ export default {
 }
 .sidebar ul.el-menu{
     position: relative;
+    background: slategray;
 }
 .el-menu--collapse .el-submenu .el-menu {
     position: absolute;
