@@ -21,6 +21,8 @@ npm install</br>
 
 npm start 此时打开localhost：8088已经可以看到页面了</br>
 
+如果出现报错的情况与vue-datasource有关的错误 在node_modules文件夹下找到vue-datasource的安装包 把其中的node_modules文件夹删除 在当前文件夹重新执行npm install </br>
+
 如果想要实现表格数据的添加与查询，执行命令</br>
 
 npm run mockdev （需要重新打开一个终端）</br>
