@@ -26,3 +26,8 @@ npm start 此时打开localhost：8088已经可以看到页面了</br>
 如果想要实现表格数据的添加与查询，执行命令</br>
 
 npm run mockdev （需要重新打开一个终端）</br>
+
+###项目截图
+样式比较简单，主要注重于功能的实现
+![image](https://github.com/skjgithub950423/air_vue/blob/master/static/%E7%99%BB%E5%BD%95.png)
+![image](https://github.com/skjgithub950423/air_vue/blob/master/static/%E4%B8%BB%E9%A1%B5%E9%9D%A2.png)
